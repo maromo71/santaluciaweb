@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>    
+        <title>Alterar Dados de Livros</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </h:head>
+    <h:body>
+        <h3>Alterar Dados de Livros</h3>
+        <h3>
+            <h:form>
+                <h:commandLink value="Listagem de Livros" action="#{LivroController.listarLivros}"/>
+            </h:form>
+        </h3>
+        <h4><h:outputLabel id="oplMensagem" value="#{LivroController.msg}"/></h4>
+
+        <div class="container">
+            <h:form>
+                <table class="table">
+                    <tr>
+                        <td><h:outputText id="lDescricao" value="Nome:" /></td>
+                        <td><h:inputText id="txtDescricao" value="#{LivroController.livro.descricao}"/></td> 
+                    </tr>
+                    <tr>
+                        <td><h:outputText id="lAutor" value="Autor: " /></td>
+                        <td><h:inputText id="txtAutor" value="#{LivroController.livro.autor}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText id="lISBN" value="ISBN:" /></td>
+                        <td><h:inputText id="txtISBN" value="#{LivroController.livro.ISBN}"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText id="lPreco" value="Preço:" /></td>
+                        <td><h:inputText id="txtPreco" value="#{LivroController.livro.preco}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h:commandButton id="submit"  type="submit" action="#{LivroController.alterarLivro}" value="Salvar" />
+                        </td>
+                    </tr>
+                </table>  
+            </h:form>
+        </div>
+        <hr size="2"></hr>
+        <div class="container">
+            <div class="row">
+                <p class="text-center">
+                    Todos os direitos reservados
+                </p>
+            </div>
+            
+        </div>
+    </h:body>
+</html>
+

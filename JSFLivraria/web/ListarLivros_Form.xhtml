@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>Listagem de Livros</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <h3 class="marginLeft12">Livros Cadastrados</h3>
+        <h3>
+            <h:form  styleClass="form-horizontal">
+                <h:commandLink value="+ Adicionar Livro" action="#{LivroController.adicionarForm()}"/>
+            </h:form>
+        </h3>
+        <h4><h:outputLabel id="oplMensagem" value="#{LivroController.msg}"/></h4>
+
+        <div class="container">
+            <h:dataTable class="table"  value="#{LivroController.listaDeLivros}" var="livro" border="1">
+                <h:column>
+                    <f:facet name="header">Descrição</f:facet>
+                        #{livro.descricao}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Autor</f:facet>
+                        #{livro.autor}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">ISBN</f:facet>
+                        #{livro.ISBN}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Preço</f:facet>
+                        #{livro.preco}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp;</f:facet><h:form><h:commandLink action="#{LivroController.excluirLivro()}" value="Excluir"/></h:form>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp;</f:facet><h:form><h:commandLink action="#{LivroController.alterarForm(livro)}" value="Atualizar"/></h:form>
+                </h:column>
+
+
+            </h:dataTable>
+        </div>
+        <hr size="2"></hr>
+        <div class="container">
+            <div class="row">
+                <p class="text-center">
+                    Todos os direitos reservados
+                </p>
+            </div>
+            
+        </div>
+    </body>
+</html>
+
